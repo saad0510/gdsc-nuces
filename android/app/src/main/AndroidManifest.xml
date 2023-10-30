@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gdsc">
+    package="com.nuces.gdsc">
+
+   <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="gdsc"
+        android:label="GDSC NUCES KHI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

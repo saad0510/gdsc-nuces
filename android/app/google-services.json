@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536967123123",
+    "project_id": "gdsc-nuces-khi",
+    "storage_bucket": "gdsc-nuces-khi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536967123123:android:9aaf2c0148cde2ad31e0c6",
+        "android_client_info": {
+          "package_name": "com.nuces.gdsc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQYKd2dny3RVhqPhrj6JGTLBJy4inXTXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
