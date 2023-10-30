@@ -4,7 +4,7 @@
    <uses-permission android:name="android.permission.INTERNET"/>
 
    <application
-        android:label="GDSC NUCES KHI"
+        android:label="GDSC NUCES"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
