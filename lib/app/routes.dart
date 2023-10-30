@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../features/auth/screens/auth_screen.dart';
+import '../features/auth/screens/home_screen.dart';
 import '../features/auth/screens/splash_screen.dart';
-import '../theme_test_screen.dart';
 
 enum AppRoutes {
   splash,
-  auth;
+  auth,
+  home;
 
   static const initial = splash;
 
@@ -19,7 +21,11 @@ enum AppRoutes {
         );
       case auth:
         return MaterialPageRoute(
-          builder: (_) => const ThemeTestScreen(),
+          builder: (_) => const AuthScreen(),
+        );
+      case home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
         );
     }
   }

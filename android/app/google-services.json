@@ -12,7 +12,20 @@
           "package_name": "com.nuces.gdsc"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "536967123123-orve32286g336msp5ug4qhdafkgc9rs5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nuces.gdsc",
+            "certificate_hash": "abc4e23db14a16ef7516d8eea41169bbe181ef62"
+          }
+        },
+        {
+          "client_id": "536967123123-7t2gh4o9uhht7tft6hsn0clmmhd1d7kt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAQYKd2dny3RVhqPhrj6JGTLBJy4inXTXA"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536967123123-7t2gh4o9uhht7tft6hsn0clmmhd1d7kt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536967123123-677mqvd0mbuat938lun59ju4jqqa8v1r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nuces.gdsc"
+              }
+            }
+          ]
         }
       }
     }

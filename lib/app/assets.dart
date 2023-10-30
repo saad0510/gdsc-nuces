@@ -3,5 +3,7 @@ class AppImages {
   static const animations = 'assets/animations';
 
   static const appLogo = '$images/logo.png';
+  static const background = '$images/background.png';
+
   static const appLogoAnimation = '$animations/logo_animation.json';
 }

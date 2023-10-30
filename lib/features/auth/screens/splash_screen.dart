@@ -22,10 +22,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     AppSizer.deviceSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0),
+      appBar: AppBar(),
       body: Center(
         child: OverflowBox(
-          maxWidth: MediaQuery.of(context).size.width * 2,
+          maxWidth: 2.dw,
           child: Lottie.asset(
             AppImages.appLogoAnimation,
             repeat: false,

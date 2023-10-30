@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/sizer.dart';
+import 'errors.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({super.key, required this.error});
@@ -29,7 +30,7 @@ class ErrorScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall,
             ),
-            AppSizes.largeY,
+            AppSizes.normalY,
             Text(
               message,
               textAlign: TextAlign.center,
@@ -43,7 +44,9 @@ class ErrorScreen extends StatelessWidget {
 
   String get message {
     final error = this.error;
-    if (error is FirebaseException)
+    if (error is AppErrors)
+      return error.message;
+    else if (error is FirebaseException)
       return error.message ?? 'No Message';
     else
       return error.toString();

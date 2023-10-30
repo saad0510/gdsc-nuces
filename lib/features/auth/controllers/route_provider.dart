@@ -2,12 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/routes.dart';
 import '../../../core/extensions/context_ext.dart';
+import 'auth_notifier.dart';
 
 final routeProvider = FutureProvider.autoDispose<AppRoutes>(
   (ref) async {
-    return AppRoutes.auth;
-    // final user = await ref.watch(authNotifierProvider.future);
-    // if (user == null) return AppRoutes.login;
+    final user = await ref.watch(authNotifierProvider.future);
+    if (user == null) return AppRoutes.auth;
+    return AppRoutes.home;
     // final profile = await ref.watch(profileNotifierProvider.future);
     // if (profile == null) return AppRoutes.completeProfile;
     // return AppRoutes.home;

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../app/routes.dart';
 import '../../app/sizer.dart';
 import '../utils/error_screen.dart';
-import '../utils/failures.dart';
+import '../utils/errors.dart';
+import '../utils/loading_widget.dart';
 
 extension NavExtOnContext on BuildContext {
   void push(AppRoutes appRoute) {
@@ -50,8 +51,8 @@ extension WidgetsExtOnContext on BuildContext {
       );
   }
 
-  void showError(dynamic error) {
-    if (error is IgnoreException) return;
+  dynamic showError(dynamic error) {
+    if (error == AppErrors.ignore) return;
     showModalBottomSheet(
       context: this,
       constraints: BoxConstraints(maxHeight: 400.h),
@@ -67,24 +68,31 @@ extension WidgetsExtOnContext on BuildContext {
       context: this,
       builder: (context) {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: LoadingWidget(),
         );
       },
     );
   }
 
-  Future showLoadingUntil(Future future, {VoidCallback? then}) async {
-    return showDialog(
-      context: this,
-      barrierDismissible: false,
-      builder: (context) {
-        var hook = Future.value(future);
-        if (then != null) hook = hook.then((_) => then());
-        hook = hook.whenComplete(Navigator.of(this).pop);
-        hook = hook.catchError(showError);
+  void showLoadingUntil<T>(Future<T> future, {Function(T)? then}) {
+    bool dismissed = false;
 
-        return const Center(
-          child: CircularProgressIndicator(),
+    var hook = Future.value(future);
+    hook = hook.whenComplete(() => dismissed ? null : pop());
+    if (then != null) hook = hook.then((x) => then(x));
+    hook = hook.catchError(showError);
+
+    showDialog(
+      context: this,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async {
+            dismissed = true;
+            return true;
+          },
+          child: const Center(
+            child: LoadingWidget(),
+          ),
         );
       },
     );

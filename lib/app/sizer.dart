@@ -52,12 +52,12 @@ class AppSizes {
   static final tinyX = SizedBox(width: 6.w);
   static final tinyY = SizedBox(height: 6.h);
 
-  static final smallX = SizedBox(width: 12.w);
-  static final smallY = SizedBox(height: 12.h);
+  static final smallX = SizedBox(width: 18.w);
+  static final smallY = SizedBox(height: 18.h);
 
-  static final normalX = SizedBox(width: 20.w);
-  static final normalY = SizedBox(height: 20.h);
+  static final normalX = SizedBox(width: 30.w);
+  static final normalY = SizedBox(height: 30.h);
 
-  static final largeX = SizedBox(width: 35.w);
-  static final largeY = SizedBox(height: 35.h);
+  static final largeX = SizedBox(width: 40.w);
+  static final largeY = SizedBox(height: 40.h);
 }
