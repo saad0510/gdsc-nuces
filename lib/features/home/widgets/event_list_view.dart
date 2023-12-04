@@ -51,8 +51,8 @@ class EventListView extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          '${events.length} Events',
-          style: Theme.of(context).textTheme.titleLarge,
+          '${events.length} Club Events',
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         AppSizes.smallY,
         ListView.separated(

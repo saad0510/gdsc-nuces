@@ -1,5 +1,5 @@
 extension DateStrExt on DateTime {
-  String get dateFormatedLong => '$day ${_monthName[month]} $year';
+  String get dateFormatedLong => '$day ${_monthName[month]} ${year % 100}';
 
   String get dateFormated => '$day ${_monthName[month]}';
 

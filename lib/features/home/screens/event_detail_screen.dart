@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/sizer.dart';
-import '../../../core/extensions/datetime_ext.dart';
 import '../entities/event.dart';
-import '../widgets/background_image_box.dart';
+import '../widgets/event_tile.dart';
 import '../widgets/info_chip.dart';
 import 'bullet_text.dart';
 
@@ -24,32 +23,15 @@ class EventDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            BackgroundImageBox(
-              imageUrl: event.coverImgUrl,
-              child: SizedBox(height: 200.h),
-            ),
-            AppSizes.normalY,
-            Text(
-              event.title,
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            EventTile(event: event),
             AppSizes.mediumY,
-            Wrap(
-              spacing: 15.sp,
-              runSpacing: 5.sp,
+            Row(
               children: [
-                InfoChip(
-                  icon: Icons.calendar_month,
-                  title: event.startAt.dateFormatedLong,
-                ),
-                InfoChip(
-                  icon: Icons.alarm,
-                  title: event.startAt.timeFormated,
-                ),
                 InfoChip(
                   icon: Icons.lock_clock_outlined,
                   title: '${event.duration.inHours} Hrs',
                 ),
+                AppSizes.smallX,
                 InfoChip(
                   icon: Icons.location_on,
                   title: event.venue,
@@ -58,12 +40,19 @@ class EventDetailScreen extends StatelessWidget {
             ),
             AppSizes.mediumY,
             Text(event.description),
-            for (final point in event.summary) ...[
-              AppSizes.tinyY,
+            AppSizes.smallY,
+            for (final point in event.summary) //
               BulletText(point),
-            ],
+            AppSizes.mediumY,
+            const Divider(),
+            AppSizes.mediumY,
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Register',
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }

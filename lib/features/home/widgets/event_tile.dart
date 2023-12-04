@@ -30,25 +30,33 @@ class EventTile extends StatelessWidget {
               onTap: onPressed,
               child: Padding(
                 padding: AppPaddings.normal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Expanded(
-                      child: Text(
-                        event.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
-                      ),
+                    Text(
+                      event.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
                     ),
-                    IconChip(
-                      icon: Icons.alarm,
-                      text: event.startAt.timeFormated,
-                    ),
-                    AppSizes.smallX,
-                    IconChip(
-                      icon: Icons.calendar_today,
-                      text: event.startAt.dateFormated,
+                    AppSizes.tinyY,
+                    AppSizes.tinyY,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        IconChip(
+                          icon: Icons.alarm,
+                          text: event.startAt.timeFormated,
+                          color: Colors.white,
+                        ),
+                        AppSizes.smallX,
+                        IconChip(
+                          icon: Icons.calendar_today,
+                          text: event.startAt.dateFormatedLong,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
                   ],
                 ),

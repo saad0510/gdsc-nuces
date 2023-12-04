@@ -7,12 +7,12 @@ class IconChip extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
-    this.color = Colors.white,
+    this.color,
   });
 
   final IconData icon;
   final String text;
-  final Color color;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,13 @@ class IconChip extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 18.sp,
+          size: 22.sp,
           color: color,
         ),
         AppSizes.tinyX,
         Text(
           text,
-          style: Theme.of(context).textTheme.labelSmall?.copyWith(color: color),
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(color: color),
         ),
       ],
     );

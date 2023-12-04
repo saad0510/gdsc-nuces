@@ -27,7 +27,7 @@ class ClubTeamCard extends StatelessWidget {
           children: [
             Text(
               'Team',
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             TextButton(
               onPressed: () {

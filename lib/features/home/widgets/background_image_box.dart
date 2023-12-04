@@ -23,20 +23,7 @@ class BackgroundImageBox extends StatelessWidget {
             alignment: Alignment.topCenter,
           ),
         ),
-        child: DecoratedBox(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [
-                Colors.black45,
-                Colors.transparent,
-                Colors.transparent,
-              ],
-            ),
-          ),
-          child: child,
-        ),
+        child: child,
       ),
     );
   }

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/sizer.dart';
-import '../../../core/extensions/datetime_ext.dart';
 import '../entities/club.dart';
 import '../widgets/club_team_card.dart';
 import '../widgets/club_tile.dart';
 import '../widgets/event_list_view.dart';
-import '../widgets/info_chip.dart';
 
 class ClubDetailScreen extends StatelessWidget {
   const ClubDetailScreen({super.key, required this.club});
@@ -24,26 +22,12 @@ class ClubDetailScreen extends StatelessWidget {
           children: [
             ClubTile(club: club),
             AppSizes.mediumY,
-            Wrap(
-              spacing: 15.sp,
-              runSpacing: 5.sp,
-              children: [
-                InfoChip(
-                  icon: Icons.group,
-                  title: 'Members',
-                  value: club.membersCount.toString(),
-                ),
-                InfoChip(
-                  icon: Icons.calendar_month,
-                  title: club.createdAt.dateFormatedLong,
-                ),
-              ],
-            ),
-            AppSizes.smallY,
             Text(club.description),
-            AppSizes.smallY,
+            AppSizes.mediumY,
             ClubTeamCard(club: club),
-            AppSizes.normalY,
+            AppSizes.mediumY,
+            const Divider(),
+            AppSizes.mediumY,
             EventListView(clubId: club.id),
             AppSizes.largeY,
             AppSizes.largeY,

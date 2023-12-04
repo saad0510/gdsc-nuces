@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../app/sizer.dart';
 import '../entities/club.dart';
 import 'background_image_box.dart';
+import 'icon_chip.dart';
 
 class ClubTile extends StatelessWidget {
   const ClubTile({
@@ -19,21 +20,33 @@ class ClubTile extends StatelessWidget {
     return Hero(
       tag: club.id,
       child: SizedBox(
-        height: 200.h,
+        height: 150.h,
         child: BackgroundImageBox(
           imageUrl: club.coverImgUrl,
           child: Material(
             type: MaterialType.transparency,
             child: InkWell(
               onTap: onPressed,
-              child: Container(
+              child: Padding(
                 padding: AppPaddings.normal,
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  club.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      club.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
+                    ),
+                    AppSizes.tinyY,
+                    AppSizes.tinyY,
+                    IconChip(
+                      icon: Icons.group,
+                      text: club.membersCount.toString(),
+                      color: Colors.white,
+                    ),
+                  ],
                 ),
               ),
             ),

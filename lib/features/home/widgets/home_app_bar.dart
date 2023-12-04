@@ -42,8 +42,10 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
             TextField(
               decoration: InputDecoration(
                 hintText: 'Search clubs by name',
+                hintStyle: Theme.of(context).textTheme.bodyLarge,
                 suffixIcon: IconButton(
                   onPressed: () {},
+                  iconSize: 30.sp,
                   icon: const Icon(Icons.search),
                 ),
               ),

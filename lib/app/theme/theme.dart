@@ -36,7 +36,10 @@ class AppTheme {
   ThemeData withBrightness(Brightness brightness) {
     final isDark = brightness == Brightness.dark;
     final theme = isDark ? darkTheme : lightTheme;
-    final textTheme = this.textTheme.merge(theme.textTheme);
+    var textTheme = theme.textTheme.copyWith(
+      titleMedium: theme.textTheme.titleMedium?.copyWith(fontSize: 20),
+    );
+    textTheme = this.textTheme.merge(textTheme);
 
     return theme.copyWith(
       textTheme: textTheme,
@@ -51,11 +54,12 @@ class AppTheme {
     fontFamilyFallback: ['Google'],
   );
 
-  final inputTheme = const InputDecorationTheme(
+  final inputTheme = InputDecorationTheme(
     filled: true,
     isDense: true,
     errorMaxLines: 3,
-    border: OutlineInputBorder(
+    contentPadding: AppPaddings.normal,
+    border: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
   );
