@@ -26,6 +26,7 @@ class ClubDetailScreen extends StatelessWidget {
             AppSizes.mediumY,
             Wrap(
               spacing: 15.sp,
+              runSpacing: 5.sp,
               children: [
                 InfoChip(
                   icon: Icons.group,
@@ -43,7 +44,7 @@ class ClubDetailScreen extends StatelessWidget {
             AppSizes.smallY,
             ClubTeamCard(club: club),
             AppSizes.normalY,
-            EventListView(club: club),
+            EventListView(clubId: club.id),
             AppSizes.largeY,
             AppSizes.largeY,
           ],

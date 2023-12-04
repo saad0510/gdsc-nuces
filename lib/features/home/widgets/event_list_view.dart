@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/sizer.dart';
-import '../entities/club.dart';
-import '../entities/events_provider.dart';
+import '../../../core/extensions/context_ext.dart';
+import '../controllers/events_provider.dart';
+import '../screens/event_detail_screen.dart';
 import 'event_tile.dart';
 import 'info_message.dart';
 
 class EventListView extends ConsumerWidget {
   const EventListView({
     super.key,
-    required this.club,
+    required this.clubId,
   });
 
-  final Club club;
+  final String clubId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final eventsAsync = ref.watch(eventsProvider(club.id));
+    final eventsAsync = ref.watch(eventsProvider(clubId));
 
     if (eventsAsync.isLoading)
       return Text(
@@ -63,7 +64,11 @@ class EventListView extends ConsumerWidget {
           itemBuilder: (_, i) {
             return EventTile(
               event: events[i],
-              onPressed: () {},
+              onPressed: () {
+                context.pushTo(
+                  EventDetailScreen(event: events[i]),
+                );
+              },
             );
           },
         ),
