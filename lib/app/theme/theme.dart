@@ -42,6 +42,9 @@ class AppTheme {
     textTheme = this.textTheme.merge(textTheme);
 
     return theme.copyWith(
+      appBarTheme: theme.appBarTheme.copyWith(
+        titleTextStyle: textTheme.titleMedium,
+      ),
       textTheme: textTheme,
       inputDecorationTheme: inputTheme,
       elevatedButtonTheme: elevatedButton,

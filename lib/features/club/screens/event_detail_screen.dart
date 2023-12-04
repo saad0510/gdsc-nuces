@@ -4,6 +4,7 @@ import '../../../app/sizer.dart';
 import '../entities/event.dart';
 import '../widgets/event_tile.dart';
 import '../widgets/info_chip.dart';
+import '../widgets/register_event_dialog.dart';
 import 'bullet_text.dart';
 
 class EventDetailScreen extends StatelessWidget {
@@ -51,7 +52,9 @@ class EventDetailScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Register',
-        onPressed: () {},
+        onPressed: () {
+          RegisterEventDialog(event: event).show(context);
+        },
         child: const Icon(Icons.add),
       ),
     );

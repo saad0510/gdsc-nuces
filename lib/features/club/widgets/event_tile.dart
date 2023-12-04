@@ -21,7 +21,7 @@ class EventTile extends StatelessWidget {
     return Hero(
       tag: event.id,
       child: SizedBox(
-        height: 150.h,
+        height: 130.h,
         child: BackgroundImageBox(
           imageUrl: event.coverImgUrl,
           child: Material(
@@ -38,7 +38,7 @@ class EventTile extends StatelessWidget {
                       event.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                     AppSizes.tinyY,
                     AppSizes.tinyY,

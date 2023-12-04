@@ -9,7 +9,8 @@ enum AppRoutes {
   splash,
   auth,
   home,
-  profile;
+  profile,
+  ;
 
   static const initial = splash;
 

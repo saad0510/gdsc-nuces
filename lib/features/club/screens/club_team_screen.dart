@@ -17,7 +17,6 @@ class ClubTeamScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        titleTextStyle: Theme.of(context).textTheme.titleMedium,
         title: Text(club.title),
       ),
       body: SingleChildScrollView(

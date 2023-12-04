@@ -5,6 +5,7 @@ import '../entities/club.dart';
 import '../widgets/club_team_card.dart';
 import '../widgets/club_tile.dart';
 import '../widgets/event_list_view.dart';
+import '../widgets/join_club_dialog.dart';
 
 class ClubDetailScreen extends StatelessWidget {
   const ClubDetailScreen({super.key, required this.club});
@@ -36,7 +37,9 @@ class ClubDetailScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Join',
-        onPressed: () {},
+        onPressed: () {
+          JoinClubForm(club: club).show(context);
+        },
         child: const Icon(Icons.add),
       ),
     );
