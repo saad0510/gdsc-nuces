@@ -4,6 +4,7 @@ import '../../../app/sizer.dart';
 import '../../../core/extensions/datetime_ext.dart';
 import '../entities/club.dart';
 import '../widgets/club_tile.dart';
+import '../widgets/event_list_view.dart';
 import '../widgets/info_chip.dart';
 
 class ClubDetailScreen extends StatelessWidget {
@@ -21,7 +22,7 @@ class ClubDetailScreen extends StatelessWidget {
           children: [
             AppSizes.normalY,
             ClubTile(club: club),
-            AppSizes.normalY,
+            AppSizes.mediumY,
             Wrap(
               spacing: 15.sp,
               children: [
@@ -31,13 +32,17 @@ class ClubDetailScreen extends StatelessWidget {
                   value: club.membersCount.toString(),
                 ),
                 InfoChip(
-                  icon: Icons.alarm,
+                  icon: Icons.calendar_month,
                   title: club.createdAt.dateFormatedLong,
                 ),
               ],
             ),
             AppSizes.smallY,
             Text(club.description),
+            AppSizes.normalY,
+            EventListView(club: club),
+            AppSizes.largeY,
+            AppSizes.largeY,
           ],
         ),
       ),

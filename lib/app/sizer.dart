@@ -68,6 +68,8 @@ class AppSizes {
   static final smallX = SizedBox(width: 18.w);
   static final smallY = SizedBox(height: 18.h);
 
+  static final mediumY = SizedBox(height: 24.h);
+
   static final normalX = SizedBox(width: 30.w);
   static final normalY = SizedBox(height: 30.h);
 

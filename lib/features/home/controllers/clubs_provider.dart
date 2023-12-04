@@ -15,20 +15,21 @@ const _coverImages = [
 
 final clubsProvider = Provider<List<Club>>(
   (ref) {
+    final now = DateTime.now();
+    final seed = now.microsecondsSinceEpoch;
+    final random = Random(seed);
+
     return List.generate(
       10,
       (i) => Club(
-        id: i.toString(),
+        id: 'club_$i',
         title: _names[i % 3],
         description: _description,
         coverImgUrl: _coverImages[i % 3],
-        membersCount: Random().nextInt(50) + 10,
+        membersCount: random.nextInt(50) + 10,
         leadUserId: 'leadUserId-$i',
-        coleadUserIds: List.generate(
-          Random().nextInt(3),
-          (j) => '$i-coleadUserId-$j',
-        ),
-        createdAt: DateTime.now(),
+        coleadUserIds: List.generate(random.nextInt(3), (j) => '$i-coleadUserId-$j'),
+        createdAt: now,
       ),
     );
   },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/sizer.dart';
 import '../entities/club.dart';
+import 'background_image_box.dart';
 
 class ClubTile extends StatelessWidget {
   const ClubTile({
@@ -19,30 +20,20 @@ class ClubTile extends StatelessWidget {
       tag: club.id,
       child: SizedBox(
         height: 200.h,
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              image: DecorationImage(
-                image: NetworkImage(club.coverImgUrl),
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
-              ),
-            ),
-            child: Material(
-              type: MaterialType.transparency,
-              child: InkWell(
-                onTap: onPressed,
-                child: Container(
-                  padding: AppPaddings.normal,
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    club.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),
-                  ),
+        child: BackgroundImageBox(
+          imageUrl: club.coverImgUrl,
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: onPressed,
+              child: Container(
+                padding: AppPaddings.normal,
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  club.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),
                 ),
               ),
             ),
