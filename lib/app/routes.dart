@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../features/auth/screens/auth_screen.dart';
-import '../features/auth/screens/home_screen.dart';
+import '../features/auth/screens/profile_screen.dart';
 import '../features/auth/screens/splash_screen.dart';
 
 enum AppRoutes {
   splash,
   auth,
-  home;
+  profile;
 
   static const initial = splash;
 
@@ -23,9 +23,9 @@ enum AppRoutes {
         return MaterialPageRoute(
           builder: (_) => const AuthScreen(),
         );
-      case home:
+      case profile:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => const ProfileScreen(),
         );
     }
   }

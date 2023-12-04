@@ -6,8 +6,8 @@ import '../../../core/extensions/context_ext.dart';
 import '../controllers/auth_notifier.dart';
 import '../controllers/route_provider.dart';
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({super.key});
+class ProfileScreen extends ConsumerWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
