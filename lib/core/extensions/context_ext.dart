@@ -7,6 +7,12 @@ import '../utils/errors.dart';
 import '../utils/loading_widget.dart';
 
 extension NavExtOnContext on BuildContext {
+  void pushTo(Widget screen) {
+    Navigator.of(this).push(
+      MaterialPageRoute(builder: (_) => screen),
+    );
+  }
+
   void push(AppRoutes appRoute) {
     Navigator.of(this).pushNamed(appRoute.name);
   }
