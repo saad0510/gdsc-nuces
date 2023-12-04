@@ -23,6 +23,7 @@ class ClubTile extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           child: DecoratedBox(
             decoration: BoxDecoration(
+              color: Colors.grey,
               image: DecorationImage(
                 image: NetworkImage(club.coverImgUrl),
                 fit: BoxFit.cover,
@@ -37,7 +38,7 @@ class ClubTile extends StatelessWidget {
                   padding: AppPaddings.normal,
                   alignment: Alignment.bottomLeft,
                   child: Text(
-                    club.name,
+                    club.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white),
