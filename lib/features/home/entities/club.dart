@@ -1,11 +1,12 @@
+import 'club_team.dart';
+
 class Club {
   final String id;
   final String title;
   final String description;
   final String coverImgUrl;
   final int membersCount;
-  final String leadUserId;
-  final List<String> coleadUserIds;
+  final ClubTeam team;
   final DateTime createdAt;
 
   const Club({
@@ -14,8 +15,7 @@ class Club {
     required this.description,
     required this.coverImgUrl,
     required this.membersCount,
-    required this.leadUserId,
-    required this.coleadUserIds,
+    required this.team,
     required this.createdAt,
   });
 }

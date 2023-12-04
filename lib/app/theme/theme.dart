@@ -42,6 +42,7 @@ class AppTheme {
       textTheme: textTheme,
       inputDecorationTheme: inputTheme,
       elevatedButtonTheme: elevatedButton,
+      listTileTheme: listTile,
     );
   }
 
@@ -66,6 +67,11 @@ class AppTheme {
       foregroundColor: Colors.white,
       shape: roundBox,
     ),
+  );
+
+  final listTile = ListTileThemeData(
+    contentPadding: AppPaddings.small,
+    shape: roundBox,
   );
 
   static const roundBox = RoundedRectangleBorder(

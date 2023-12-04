@@ -59,6 +59,7 @@ class AppPaddings {
   static final smallY = EdgeInsets.symmetric(vertical: 12.sp);
 
   static final tiny = EdgeInsets.all(5.sp);
+  static final tinyX = EdgeInsets.symmetric(horizontal: 5.sp);
 }
 
 class AppSizes {

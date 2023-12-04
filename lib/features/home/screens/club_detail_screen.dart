@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../app/sizer.dart';
 import '../../../core/extensions/datetime_ext.dart';
 import '../entities/club.dart';
+import '../widgets/club_team_card.dart';
 import '../widgets/club_tile.dart';
 import '../widgets/event_list_view.dart';
 import '../widgets/info_chip.dart';
@@ -15,12 +16,12 @@ class ClubDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
         padding: AppPaddings.normal,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            AppSizes.normalY,
             ClubTile(club: club),
             AppSizes.mediumY,
             Wrap(
@@ -39,6 +40,8 @@ class ClubDetailScreen extends StatelessWidget {
             ),
             AppSizes.smallY,
             Text(club.description),
+            AppSizes.smallY,
+            ClubTeamCard(club: club),
             AppSizes.normalY,
             EventListView(club: club),
             AppSizes.largeY,

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../entities/club.dart';
+import '../entities/club_team.dart';
 
 const _names = ['App Development', 'Web Development', 'Cyber Security'];
 const _description =
@@ -27,8 +28,10 @@ final clubsProvider = Provider<List<Club>>(
         description: _description,
         coverImgUrl: _coverImages[i % 3],
         membersCount: random.nextInt(50) + 10,
-        leadUserId: 'leadUserId-$i',
-        coleadUserIds: List.generate(random.nextInt(3), (j) => '$i-coleadUserId-$j'),
+        team: ClubTeam(
+          leadUid: 'leadUserId-$i',
+          coleadUids: List.generate(random.nextInt(3), (j) => '$i-coleadUserId-$j'),
+        ),
         createdAt: now,
       ),
     );

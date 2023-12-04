@@ -53,10 +53,11 @@ class EventListView extends ConsumerWidget {
           '${events.length} Events',
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        AppSizes.tinyY,
+        AppSizes.smallY,
         ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
+          padding: AppPaddings.normalY,
           itemCount: events.length,
           separatorBuilder: (_, i) => AppSizes.smallY,
           itemBuilder: (_, i) {
