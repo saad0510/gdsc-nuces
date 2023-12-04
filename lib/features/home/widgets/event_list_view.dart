@@ -5,7 +5,7 @@ import '../../../app/sizer.dart';
 import '../entities/club.dart';
 import '../entities/events_provider.dart';
 import 'event_tile.dart';
-import 'image_message.dart';
+import 'info_message.dart';
 
 class EventListView extends ConsumerWidget {
   const EventListView({
@@ -28,7 +28,7 @@ class EventListView extends ConsumerWidget {
     if (eventsAsync.hasError)
       return Center(
         heightFactor: 1.5,
-        child: ImageMessage.error(
+        child: InfoMessage.error(
           title: 'An error occured',
           description: eventsAsync.error.toString(),
         ),
@@ -39,7 +39,7 @@ class EventListView extends ConsumerWidget {
     if (events.isEmpty)
       return const Center(
         heightFactor: 1.5,
-        child: ImageMessage.empty(
+        child: InfoMessage.empty(
           title: 'No events found',
           description: 'Join the club to get notifications about future events',
         ),

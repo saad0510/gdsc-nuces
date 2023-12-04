@@ -3,46 +3,56 @@ import 'package:flutter/material.dart';
 import '../../../app/assets.dart';
 import '../../../app/sizer.dart';
 
-class ImageMessage extends StatelessWidget {
-  const ImageMessage({
+class InfoMessage extends StatelessWidget {
+  const InfoMessage({
     super.key,
     required this.title,
     required this.description,
-    required this.assetImage,
-  });
+    this.assetImage,
+    this.icon,
+  }) : assert(assetImage != null || icon != null);
 
-  const ImageMessage.empty({
+  const InfoMessage.empty({
     super.key,
     required this.title,
     required this.description,
-  }) : assetImage = AppImages.empty;
+  })  : assetImage = AppImages.empty,
+        icon = null;
 
-  const ImageMessage.error({
+  const InfoMessage.error({
     super.key,
     required this.title,
     required this.description,
-  }) : assetImage = AppImages.error;
+  })  : assetImage = null,
+        icon = const Icon(
+          Icons.error,
+          color: Colors.red,
+        );
 
   final String title;
   final String description;
-  final String assetImage;
+  final String? assetImage;
+  final Icon? icon;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
       width: 0.6.dw,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: Image.asset(
-              assetImage,
-              width: 0.3.dw,
-              fit: BoxFit.contain,
-            ),
-          ),
-          AppSizes.mediumY,
+          icon != null
+              ? Icon(
+                  icon!.icon,
+                  size: 100.sp,
+                  color: icon!.color,
+                )
+              : Image.asset(
+                  assetImage!,
+                  height: 150.h,
+                  fit: BoxFit.fitHeight,
+                ),
+          AppSizes.smallY,
           Text(
             title,
             textAlign: TextAlign.center,

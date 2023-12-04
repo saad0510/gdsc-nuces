@@ -22,35 +22,38 @@ class EventTile extends StatelessWidget {
       tag: event.id,
       child: SizedBox(
         height: 150.h,
-        child: BackgroundImageBox(
-          imageUrl: event.coverImgUrl,
-          child: Material(
-            type: MaterialType.transparency,
-            child: InkWell(
-              onTap: onPressed,
-              child: Padding(
-                padding: AppPaddings.normal,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        event.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          child: BackgroundImageBox(
+            imageUrl: event.coverImgUrl,
+            child: Material(
+              type: MaterialType.transparency,
+              child: InkWell(
+                onTap: onPressed,
+                child: Padding(
+                  padding: AppPaddings.normal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          event.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
+                        ),
                       ),
-                    ),
-                    IconChip(
-                      icon: Icons.alarm,
-                      text: '${event.duration.inHours} hrs',
-                    ),
-                    AppSizes.smallX,
-                    IconChip(
-                      icon: Icons.calendar_today,
-                      text: event.startTime.timeFormated,
-                    ),
-                  ],
+                      IconChip(
+                        icon: Icons.alarm,
+                        text: '${event.duration.inHours} hrs',
+                      ),
+                      AppSizes.smallX,
+                      IconChip(
+                        icon: Icons.calendar_today,
+                        text: event.startTime.timeFormated,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

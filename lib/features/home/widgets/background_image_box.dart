@@ -12,31 +12,28 @@ class BackgroundImageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(12)),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
+          fit: BoxFit.cover,
+          alignment: Alignment.topCenter,
+        ),
+      ),
       child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          image: DecorationImage(
-            image: NetworkImage(imageUrl),
-            fit: BoxFit.cover,
-            alignment: Alignment.topCenter,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black45,
+              Colors.transparent,
+              Colors.transparent,
+            ],
           ),
         ),
-        child: DecoratedBox(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [
-                Colors.black45,
-                Colors.transparent,
-                Colors.transparent,
-              ],
-            ),
-          ),
-          child: child,
-        ),
+        child: child,
       ),
     );
   }

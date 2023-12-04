@@ -5,7 +5,6 @@ class AppImages {
   static const appLogo = '$images/logo.png';
   static const background = '$images/background.png';
   static const empty = '$images/empty_illustration.png';
-  static const error = '$images/error_illustration.png';
 
   static const appLogoAnimation = '$animations/logo_animation.json';
 }
