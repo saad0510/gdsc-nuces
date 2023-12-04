@@ -32,7 +32,10 @@ class UserTile extends ConsumerWidget {
         radius: 33.sp,
         foregroundImage: user == null ? null : NetworkImage(user.imageUrl),
       ),
-      title: Text(user?.name ?? 'Loading'),
+      title: Text(
+        user?.name ?? 'Loading',
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
       subtitle: Text(user?.email ?? '. . . . '),
       trailing: trailing,
     );

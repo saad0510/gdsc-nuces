@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../features/auth/screens/auth_screen.dart';
 import '../features/auth/screens/profile_screen.dart';
 import '../features/auth/screens/splash_screen.dart';
-import '../features/home/screens/home_screen.dart';
+import '../features/club/screens/home_screen.dart';
 
 enum AppRoutes {
   splash,
