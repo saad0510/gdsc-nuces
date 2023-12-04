@@ -3,10 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/constants.dart';
 import 'app/routes.dart';
+import 'app/sizer.dart';
 import 'app/theme/theme.dart';
 import 'core/utils/app_logger.dart';
 
-void main() => runApp(const GdscApp());
+void main() async {
+  await AppSizer.ensureScreenSize();
+  runApp(const GdscApp());
+}
 
 class GdscApp extends StatelessWidget {
   const GdscApp({super.key});

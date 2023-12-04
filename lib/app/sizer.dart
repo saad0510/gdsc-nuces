@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class AppSizer {
   static const designSize = Size(456, 987);
 
-  static Size deviceSize = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size;
+  static late final Size deviceSize;
 
   const AppSizer._internal();
 
@@ -22,6 +22,19 @@ class AppSizer {
   double setHeight(num height) => height * scaleHeight;
 
   double setSp(num fontSize) => fontSize * scaleText;
+
+  static Future<void> ensureScreenSize() async {
+    final binding = WidgetsFlutterBinding.ensureInitialized();
+    final window = binding.window;
+    if (window.physicalGeometry.isEmpty) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      binding.deferFirstFrame();
+      await ensureScreenSize();
+      binding.allowFirstFrame();
+    } else {
+      deviceSize = window.physicalSize / window.devicePixelRatio;
+    }
+  }
 }
 
 extension AppSizerNumExt on num {

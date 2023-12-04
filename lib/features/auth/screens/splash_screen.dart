@@ -19,8 +19,6 @@ class SplashScreen extends ConsumerStatefulWidget {
 class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    AppSizer.deviceSize = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(),
       body: Center(
