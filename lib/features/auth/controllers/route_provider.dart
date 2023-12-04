@@ -8,7 +8,7 @@ final routeProvider = FutureProvider.autoDispose<AppRoutes>(
   (ref) async {
     final user = await ref.watch(authNotifierProvider.future);
     if (user == null) return AppRoutes.auth;
-    return AppRoutes.profile;
+    return AppRoutes.home;
     // final profile = await ref.watch(profileNotifierProvider.future);
     // if (profile == null) return AppRoutes.completeProfile;
     // return AppRoutes.home;
