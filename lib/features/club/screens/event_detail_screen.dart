@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/sizer.dart';
 import '../entities/event.dart';
+import '../repositories/permissions_repo.dart';
+import '../widgets/bullet_text.dart';
+import '../widgets/event_members_view.dart';
 import '../widgets/event_tile.dart';
 import '../widgets/info_chip.dart';
 import '../widgets/register_event_dialog.dart';
-import '../widgets/bullet_text.dart';
 
-class EventDetailScreen extends StatelessWidget {
+class EventDetailScreen extends ConsumerWidget {
   const EventDetailScreen({
     super.key,
     required this.event,
@@ -16,7 +19,9 @@ class EventDetailScreen extends StatelessWidget {
   final Event event;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final canRegisterEvent = ref.watch(permissionsProvider).canRegisterEvent(event);
+
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0),
       body: SingleChildScrollView(
@@ -45,12 +50,11 @@ class EventDetailScreen extends StatelessWidget {
             for (final point in event.summary) //
               BulletText(point),
             AppSizes.mediumY,
-            const Divider(),
-            AppSizes.mediumY,
+            EventMembersView(event: event),
           ],
         ),
       ),
-      floatingActionButton: event.approved
+      floatingActionButton: canRegisterEvent && event.approved
           ? FloatingActionButton(
               tooltip: 'Register',
               onPressed: () {

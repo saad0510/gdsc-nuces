@@ -4,7 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/sizer.dart';
 import '../../../app/theme/colors.dart';
 import '../../../core/extensions/context_ext.dart';
+import '../../auth/controllers/auth_notifier.dart';
 import '../entities/event.dart';
+import '../entities/event_levels.dart';
+import '../entities/event_user.dart';
+import '../repositories/event_repo.dart';
 
 class RegisterEventDialog extends ConsumerWidget {
   const RegisterEventDialog({
@@ -35,7 +39,20 @@ class RegisterEventDialog extends ConsumerWidget {
       children: [
         ElevatedButton(
           onPressed: () {
-            context.pop();
+            final user = ref.read(userProvider)!;
+            final newEvent = event.copyWith(
+              members: [
+                ...event.members,
+                EventUser(
+                  userId: user.uid,
+                  level: EventLevels.registered,
+                ),
+              ],
+            );
+            context.showLoadingUntil(
+              ref.read(eventRepoProvider).updateEvent(newEvent),
+              then: (_) => context.pop(),
+            );
           },
           style: ElevatedButton.styleFrom(backgroundColor: AppColors.green),
           child: const Text('Let\' go!'),
