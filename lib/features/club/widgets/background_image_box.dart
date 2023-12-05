@@ -16,7 +16,7 @@ class BackgroundImageBox extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(12)),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Colors.grey.shade300,
           image: DecorationImage(
             image: NetworkImage(imageUrl),
             fit: BoxFit.cover,

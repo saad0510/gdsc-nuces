@@ -23,7 +23,7 @@ class EventListView extends ConsumerWidget {
     if (eventsAsync.isLoading)
       return Text(
         'Loading Events',
-        style: Theme.of(context).textTheme.titleLarge,
+        style: Theme.of(context).textTheme.titleMedium,
       );
 
     if (eventsAsync.hasError)

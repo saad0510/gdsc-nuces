@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/sizer.dart';
-import '../../../app/theme/colors.dart';
 import '../../../core/extensions/context_ext.dart';
 import '../../auth/widgets/user_tile.dart';
 import '../entities/club.dart';
@@ -41,11 +40,8 @@ class ClubTeamCard extends StatelessWidget {
         ),
         AppSizes.tinyY,
         UserTile(
-          userId: club.team.leadUid,
-          trailing: const LabelTag(
-            title: 'LEAD',
-            color: AppColors.red,
-          ),
+          userId: club.team.lead.userId,
+          trailing: ClubLevelTag(club.team.lead.level),
         ),
       ],
     );

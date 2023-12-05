@@ -47,7 +47,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     );
     final route = await Future.wait([
       ref.read(routeProvider.future),
-      Future.delayed(const Duration(seconds: 4)),
+      Future.delayed(const Duration(seconds: 0)),
     ]);
     if (context.mounted) //
       context.replaceAll(route.first);

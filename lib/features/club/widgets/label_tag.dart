@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/sizer.dart';
+import '../../../app/theme/colors.dart';
+import '../entities/club_levels.dart';
+
+class ClubLevelTag extends StatelessWidget {
+  const ClubLevelTag(this.level, {super.key});
+
+  final ClubLevels level;
+
+  @override
+  Widget build(BuildContext context) {
+    return LabelTag(
+      title: level.toString(),
+      color: AppColors.values[level.index],
+    );
+  }
+}
 
 class LabelTag extends StatelessWidget {
   const LabelTag({

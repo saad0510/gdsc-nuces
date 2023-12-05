@@ -30,19 +30,19 @@ class ClubTeamScreen extends StatelessWidget {
             ),
             AppSizes.smallY,
             UserTile(
-              userId: club.team.leadUid,
+              userId: club.team.lead.userId,
               trailingWithUser: (user) => EmailUserButton(user.email),
             ),
             AppSizes.normalY,
-            if (club.team.coleadUids.isNotEmpty)
+            if (club.team.coleads.isNotEmpty)
               Text(
                 'Coleads',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-            for (final coleadId in club.team.coleadUids) ...[
+            for (final colead in club.team.coleads) ...[
               AppSizes.smallY,
               UserTile(
-                userId: coleadId,
+                userId: colead.userId,
               ),
             ],
           ],

@@ -27,7 +27,7 @@ class HomeScreen extends ConsumerWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: 5,
-              separatorBuilder: (_, i) => AppSizes.normalY,
+              separatorBuilder: (_, i) => AppSizes.smallY,
               itemBuilder: (_, i) {
                 return ClubTile(
                   club: clubs[i],

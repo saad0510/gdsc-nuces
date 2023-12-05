@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/constants.dart';
 import '../entities/event.dart';
 
 const _names = [
@@ -12,11 +13,6 @@ const _names = [
 const _description =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, sequi suscipit quisquam quos, quidem laboriosam alias earum, quas atque eius architecto. Rem aut distinctio repellat, vero molestias dolore sit laborum.';
 const _point = 'Lorem ipsum dolor sit amet consectetur';
-const _coverImages = [
-  'https://www.gstatic.com/classroom/themes/img_learnlanguage_thumb.jpg',
-  'https://www.gstatic.com/classroom/themes/img_read_thumb.jpg',
-  'https://www.gstatic.com/classroom/themes/Honors_thumb.jpg'
-];
 
 final eventsProvider = FutureProvider.autoDispose.family<List<Event>, String>(
   (ref, clubId) async {
@@ -25,6 +21,7 @@ final eventsProvider = FutureProvider.autoDispose.family<List<Event>, String>(
     final now = DateTime.now();
     final seed = now.microsecondsSinceEpoch;
     final random = Random(seed);
+    final images = AppConstants.coverImages.toList();
 
     return List.generate(
       random.nextInt(5),
@@ -40,7 +37,7 @@ final eventsProvider = FutureProvider.autoDispose.family<List<Event>, String>(
           venue: 'Lab 11, EE Building',
           startAt: start,
           endAt: end,
-          coverImgUrl: _coverImages[i % 3],
+          coverImgUrl: images[i % 9],
           createdAt: now,
           summary: List.filled(random.nextInt(3) + 2, _point),
           registeredUids: List.generate(

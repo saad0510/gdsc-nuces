@@ -5,7 +5,7 @@ import '../entities/event.dart';
 import '../widgets/event_tile.dart';
 import '../widgets/info_chip.dart';
 import '../widgets/register_event_dialog.dart';
-import 'bullet_text.dart';
+import '../widgets/bullet_text.dart';
 
 class EventDetailScreen extends StatelessWidget {
   const EventDetailScreen({

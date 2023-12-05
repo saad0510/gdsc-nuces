@@ -8,25 +8,29 @@ import '../entities/user_data.dart';
 class UserTile extends ConsumerWidget {
   const UserTile({
     super.key,
-    required this.userId,
+    this.user,
+    this.userId = '',
     this.trailing,
+    this.onPressed,
     this.trailingWithUser,
-  });
+  }) : assert(user != null || userId != '');
 
   final String userId;
+  final UserData? user;
   final Widget? trailing;
+  final VoidCallback? onPressed;
   final Widget Function(UserData user)? trailingWithUser;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userAsync = ref.watch(getUserProvider(userId));
+    final userAsync = this.user != null ? AsyncData(this.user!) : ref.watch(getUserProvider(userId));
     final user = userAsync.valueOrNull;
 
     var trailing = this.trailing;
     trailing ??= trailingWithUser == null || user == null ? null : trailingWithUser!(user);
 
     return ListTile(
-      onTap: () {},
+      onTap: onPressed,
       contentPadding: AppPaddings.smallX,
       leading: CircleAvatar(
         radius: 33.sp,
