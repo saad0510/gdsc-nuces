@@ -21,6 +21,7 @@ class ClubDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final canAddEvents = ref.watch(permissionsProvider).canAddEvents(club);
+    final canSeePendingEvents = ref.watch(permissionsProvider).canSeePendingEvents(club);
 
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0),
@@ -38,8 +39,19 @@ class ClubDetailScreen extends ConsumerWidget {
             const Divider(),
             AppSizes.mediumY,
             EventListView(
-              events: ref.watch(eventsProvider(club.id)),
+              title: 'Club Events',
+              events: ref.watch(approvedEventsProvider(club.id)),
             ),
+            if (canSeePendingEvents) ...[
+              AppSizes.mediumY,
+              const Divider(),
+              AppSizes.mediumY,
+              EventListView(
+                title: 'Pending Events',
+                showEmpty: false,
+                events: ref.watch(pendingEventsProvider(club.id)),
+              ),
+            ],
             AppSizes.largeY,
             AppSizes.largeY,
           ],

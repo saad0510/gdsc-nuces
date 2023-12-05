@@ -13,6 +13,8 @@ class PermissionsRepo {
     final allowed = club.team.allUsers.where((u) => u.userId == user?.uid);
     return allowed.isNotEmpty;
   }
+
+  bool canSeePendingEvents(Club club) => canAddEvents(club);
 }
 
 final permissionsProvider = Provider<PermissionsRepo>(

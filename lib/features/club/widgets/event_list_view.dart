@@ -11,9 +11,13 @@ import 'info_message.dart';
 class EventListView extends StatelessWidget {
   const EventListView({
     super.key,
+    required this.title,
+    this.showEmpty = true,
     required this.events,
   });
 
+  final String title;
+  final bool showEmpty;
   final AsyncValue<List<Event>> events;
 
   @override
@@ -22,7 +26,7 @@ class EventListView extends StatelessWidget {
 
     if (eventsAsync.isLoading)
       return Text(
-        'Loading Events',
+        'Loading $title',
         style: Theme.of(context).textTheme.titleMedium,
       );
 
@@ -37,11 +41,11 @@ class EventListView extends StatelessWidget {
 
     final events = eventsAsync.value!;
 
-    if (events.isEmpty)
-      return const Center(
+    if (events.isEmpty && showEmpty)
+      return Center(
         heightFactor: 1.5,
         child: InfoMessage.empty(
-          title: 'No events found',
+          title: 'No $title found',
           description: 'Join the club to get notifications about future events',
         ),
       );
@@ -51,7 +55,7 @@ class EventListView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          '${events.length} Club Events',
+          '${events.length} $title',
           style: Theme.of(context).textTheme.titleMedium,
         ),
         AppSizes.smallY,

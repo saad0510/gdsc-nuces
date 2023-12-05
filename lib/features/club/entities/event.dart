@@ -11,9 +11,11 @@ class Event {
   final DateTime endAt;
   final String coverImgUrl;
   final DateTime createdAt;
-  final bool needsApproval;
+  final bool approved;
   final List<String> summary;
   final List<EventUser> members;
+
+  // TODO: add created by
 
   const Event({
     required this.id,
@@ -25,7 +27,7 @@ class Event {
     required this.endAt,
     required this.coverImgUrl,
     required this.createdAt,
-    required this.needsApproval,
+    required this.approved,
     required this.summary,
     required this.members,
   });
@@ -40,7 +42,7 @@ class Event {
         endAt = DateTime(0),
         coverImgUrl = AppConstants.coverImages.first,
         createdAt = DateTime(0),
-        needsApproval = true,
+        approved = true,
         summary = const [],
         members = const [];
 
@@ -59,7 +61,7 @@ class Event {
       'endAt': endAt.millisecondsSinceEpoch,
       'image': coverImgUrl,
       'createdAt': createdAt.millisecondsSinceEpoch,
-      'approval': needsApproval,
+      'approval': approved,
       'summary': summary,
       'members': members.map((m) => m.toMap()).toList(),
     };
@@ -76,7 +78,7 @@ class Event {
       endAt: DateTime.fromMillisecondsSinceEpoch(map['endAt']),
       coverImgUrl: map['image'],
       createdAt: DateTime.fromMillisecondsSinceEpoch(map['createdAt']),
-      needsApproval: map['approval'],
+      approved: map['approval'],
       summary: List<String>.from(map['summary']),
       members: List.from(
         map['members'].map(EventUser.fromMap),
@@ -108,7 +110,7 @@ class Event {
       endAt: endAt ?? this.endAt,
       coverImgUrl: coverImgUrl ?? this.coverImgUrl,
       createdAt: createdAt ?? this.createdAt,
-      needsApproval: needsApproval ?? this.needsApproval,
+      approved: needsApproval ?? approved,
       summary: summary ?? this.summary,
       members: members ?? this.members,
     );

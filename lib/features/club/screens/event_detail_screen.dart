@@ -50,13 +50,15 @@ class EventDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Register',
-        onPressed: () {
-          RegisterEventDialog(event: event).show(context);
-        },
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: event.approved
+          ? FloatingActionButton(
+              tooltip: 'Register',
+              onPressed: () {
+                RegisterEventDialog(event: event).show(context);
+              },
+              child: const Icon(Icons.add),
+            )
+          : null,
     );
   }
 }
