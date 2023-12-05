@@ -3,22 +3,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/sizer.dart';
 import '../../../core/extensions/context_ext.dart';
-import '../controllers/events_provider.dart';
+import '../entities/event.dart';
 import '../screens/event_detail_screen.dart';
 import 'event_tile.dart';
 import 'info_message.dart';
 
-class EventListView extends ConsumerWidget {
+class EventListView extends StatelessWidget {
   const EventListView({
     super.key,
-    required this.clubId,
+    required this.events,
   });
 
-  final String clubId;
+  final AsyncValue<List<Event>> events;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final eventsAsync = ref.watch(eventsProvider(clubId));
+  Widget build(BuildContext context) {
+    final eventsAsync = this.events;
 
     if (eventsAsync.isLoading)
       return Text(

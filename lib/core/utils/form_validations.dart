@@ -8,6 +8,13 @@ class FormValidations {
     r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$',
   );
 
+  static String? required(String? text) {
+    if (text == null) return null;
+    text = text.trim();
+    if (text.isEmpty) return 'This field is required';
+    return null;
+  }
+
   static String? longInput(String? text) {
     if (text == null) return null;
     text = text.trim();
