@@ -51,7 +51,10 @@ class RegisterEventDialog extends ConsumerWidget {
             );
             context.showLoadingUntil(
               ref.read(eventRepoProvider).updateEvent(newEvent),
-              then: (_) => context.pop(),
+              then: (_) {
+                context.pop();
+                context.pop();
+              },
             );
           },
           style: ElevatedButton.styleFrom(backgroundColor: AppColors.green),

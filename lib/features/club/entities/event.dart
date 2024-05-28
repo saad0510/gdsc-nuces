@@ -42,7 +42,7 @@ class Event {
         endAt = DateTime(0),
         coverImgUrl = AppConstants.coverImages.first,
         createdAt = DateTime(0),
-        approved = true,
+        approved = false,
         summary = const [],
         members = const [];
 
@@ -96,7 +96,7 @@ class Event {
     DateTime? endAt,
     String? coverImgUrl,
     DateTime? createdAt,
-    bool? needsApproval,
+    bool? approved,
     List<String>? summary,
     List<EventUser>? members,
   }) {
@@ -110,7 +110,7 @@ class Event {
       endAt: endAt ?? this.endAt,
       coverImgUrl: coverImgUrl ?? this.coverImgUrl,
       createdAt: createdAt ?? this.createdAt,
-      approved: needsApproval ?? approved,
+      approved: approved ?? this.approved,
       summary: summary ?? this.summary,
       members: members ?? this.members,
     );

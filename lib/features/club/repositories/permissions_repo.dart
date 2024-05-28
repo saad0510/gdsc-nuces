@@ -26,7 +26,7 @@ class PermissionsRepo {
   bool canChangeMembers(Event event) {
     final user = ref.read(userProvider);
     final found = event.members.where((u) => u.userId == user?.uid);
-    return found.isEmpty;
+    return found.isNotEmpty;
   }
 }
 
