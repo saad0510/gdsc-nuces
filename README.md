@@ -50,3 +50,6 @@ APK 📲: [Click here](https://github.com/saad0510/gdsc-nuces/releases/tag/apk)
 ## Credits
 
 * Animation: https://lottiefiles.com/animations/gdsc-logo-DokvnU0D2F
+
+## Developer
+saadbinkhalid.dev@gmail.com
