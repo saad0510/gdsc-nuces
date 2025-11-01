@@ -19,7 +19,6 @@ An app to manage activities of Google Developer Student Clubs (GDSC) at FAST NUC
 
 ## Links
 
-Admin 💼: [Click here](https://github.com/saad0510/gdsc-nuces-admin) <br>
 APK 📲: [Click here](https://github.com/saad0510/gdsc-nuces/releases/tag/apk)
 
 ## Screenshots
